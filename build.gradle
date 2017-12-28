@@ -1,0 +1,54 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext.seleniumVersion = '3.8.1'
+ext.testngVersion = '6.13.1'
+ext.apachePOIVersion = '3.17'
+ext.mailjarVersion = '1.6.0'
+ext.autoitVersion = '0.1.13'
+
+dependencies {
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.testng', name: 'testng', version:testngVersion
+
+    //Selenium Jars
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-support', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-edge-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-ie-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version:seleniumVersion
+
+
+    //apache poi jars
+    compile group: 'org.apache.poi', name: 'poi', version:apachePOIVersion
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version:apachePOIVersion
+
+    //Mail Jars
+    compile group: 'javax.mail', name: 'javax.mail-api', version:mailjarVersion
+
+    //AutoIT
+    compile group: 'de.openkeyword', name: 'autoit', version:autoitVersion
+
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}

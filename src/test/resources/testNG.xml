@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Infinote Tracker Sanity" verbose="3" >
+    <!--<parameter name="selPropFile" value="C:\Prudhvi\Automation\InfinoteTrackerSanity\src\test\resources\properties\selenium.properties" />-->
+    <!--<parameter name="selPropFile" value="../properties/selenium.properties" />-->
+    <test name="Infinote Test">
+        <packages>
+            <package name="com.infinote.clusterdata" />
+        </packages>
+        <!-- <classes>
+            <class name="test.infinote.testcases" />
+        </classes> -->
+    </test>
+</suite>
